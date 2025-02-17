@@ -11,11 +11,12 @@ fun main() {
 //    greetingsText = println("$goodText $nightText, $userName!")
 
     val userName = "Иван"
-    val timesOfDayText = "день"
-    val goodText = "Добрый $timesOfDayText, $userName"
+    var timesOfDayText = "день"
+    var goodText = "Добрый $timesOfDayText, $userName"
     var greetingsText = println(goodText)
 
-    val nightText = "вечер"
+    timesOfDayText = "вечер"
+    goodText = "Добрый $timesOfDayText, $userName"
     greetingsText = println(goodText)
 
 }
