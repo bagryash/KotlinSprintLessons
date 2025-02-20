@@ -17,9 +17,7 @@ fun main() {
     val trainDepartureDay: LocalDate = LocalDate.now()
     val dayOfTrainArrival: LocalDate = trainDepartureDay.plusDays(daysOnRoad)
 
-    println(hh)
-    println(mm)
-    println(dayOfTrainArrival)
+    println("$hh:$mm $dayOfTrainArrival")
 
 }
 
