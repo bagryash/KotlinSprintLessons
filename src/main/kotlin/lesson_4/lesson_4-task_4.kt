@@ -2,19 +2,16 @@ package org.example.lesson_4
 
 fun main() {
 
-    var rP = 1
-    var nS = rP - 1
+    var armsAndAbs = 0
+    var legsAndBack = armsAndAbs + 1
 
-    val day = 5
+    var day = 5
 
-    rP = rP + day - 1
-    nS = nS + day
-
-    println(rP)
-    println(rP % 2)
+    armsAndAbs += day
+    legsAndBack += day
 
     println(
-        "Упражнения для рук: " + (rP % 2 == 1) + "\nУпражнения для ног: " + (nS % 2 == 0) + " \nУпражнения для спины: " + (nS % 2 == 0) + " \nУпражнения для пресса: " + (rP % 2 == 1)
+        "Упражнения для рук:    " + (armsAndAbs % 2 != 0) + "\nУпражнения для ног:    " + (legsAndBack % 2 != 0) + " \nУпражнения для спины:  " + (legsAndBack % 2 != 0) + " \nУпражнения для пресса: " + (armsAndAbs % 2 != 0)
     )
 
 }
