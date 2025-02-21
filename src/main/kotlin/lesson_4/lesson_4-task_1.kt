@@ -2,7 +2,7 @@ package org.example.lesson_4
 
 fun main() {
 
-    val  numberFreeTablesToday = 13
+    val numberFreeTablesToday = 13
     val numberFreeTablesTomorrow = 9
 
     val tablesAvailableToday = !(NUMBER_OF_TABLES == numberFreeTablesToday)
