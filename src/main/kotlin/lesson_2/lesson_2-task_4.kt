@@ -5,10 +5,13 @@ fun main() {
     val crystallineOreMined = 7
     val ironOreMined = 11
 
-    println((BUFF / 100f * crystallineOreMined).toInt())
-    println((BUFF / 100f * ironOreMined).toInt())
+    println((BUFF / HUNDRED * crystallineOreMined).toInt())
+    println((BUFF / HUNDRED * ironOreMined).toInt())
 
 }
 
 const val BUFF = 20
+const val HUNDRED = 100f
+
+
 
