@@ -2,24 +2,24 @@ package org.example.lesson_4
 
 fun main() {
 
-    val averageLoadWeightMin = 36
-    val averageLoadWeightMax = 100
-    val averageLoadVolumeMax = 100
-
-    val cargoWightOne = 20
-    val cargoVolumeOne = 80
-    val cargoWightTow = 50
-    val cargoVolumeTow = 100
+    var cargoWight = 20
+    var cargoVolume = 80
 
     println(
-        "Груз с весом $cargoWightOne кг и объемом $cargoVolumeOne л соответствует категории 'Average': " +
-                ((averageLoadWeightMin <= cargoWightOne) and (cargoWightOne < averageLoadWeightMax) and (cargoVolumeOne < averageLoadVolumeMax))
+        "Груз с весом $cargoWight кг и объемом $cargoVolume л соответствует категории 'Average': " +
+                ((AVERAGE_CARGO_WIGHT_MIN < cargoWight) and (cargoWight <= AVERAGE_CARGO_WIGHT_MAX) and (cargoVolume < AVERAGE_CARGO_VOLUME_MAX))
     )
+    cargoWight = 50
+    cargoVolume = 100
 
     println(
-        "Груз с весом $cargoWightTow кг и объемом $cargoVolumeTow л соответствует категории 'Average': " +
-                ((averageLoadWeightMin <= cargoWightTow) and (cargoWightTow < averageLoadWeightMax) and (cargoVolumeTow < averageLoadVolumeMax))
+        "Груз с весом $cargoWight кг и объемом $cargoVolume л соответствует категории 'Average': " +
+                ((AVERAGE_CARGO_WIGHT_MIN < cargoWight) and (cargoWight <= AVERAGE_CARGO_WIGHT_MAX) and (cargoVolume < AVERAGE_CARGO_VOLUME_MAX))
     )
 
 }
+
+const val AVERAGE_CARGO_WIGHT_MIN = 35
+const val AVERAGE_CARGO_WIGHT_MAX = 100
+const val AVERAGE_CARGO_VOLUME_MAX = 100
 
