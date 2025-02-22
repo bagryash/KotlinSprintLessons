@@ -1,17 +1,13 @@
 package org.example.lesson_4
 
 fun main() {
-
-    var armsAndAbs = 0
-    var legsAndBack = armsAndAbs + 1
-
     var day = 5
-
-    armsAndAbs += day
-    legsAndBack += day
+    val isEven = day % 2 == 0
 
     println(
-        "Упражнения для рук:    " + (armsAndAbs % 2 != 0) + "\nУпражнения для ног:    " + (legsAndBack % 2 != 0) + " \nУпражнения для спины:  " + (legsAndBack % 2 != 0) + " \nУпражнения для пресса: " + (armsAndAbs % 2 != 0)
+        "Упражнения для рук:    " + !isEven +
+            "\nУпражнения для ног:    " + isEven +
+            "\nУпражнения для спины:  " + isEven +
+            "\nУпражнения для пресса: " + !isEven,
     )
-
 }
