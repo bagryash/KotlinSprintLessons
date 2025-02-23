@@ -4,7 +4,7 @@ import kotlin.random.Random
 
 fun main() {
 
-    val sumForCheck = Random.nextInt(0, 10)
+    val sumForCheck = (1..10).random()
     println("Введите для проверки 2 простых числа, сумма которых равно $sumForCheck")
 
     println("Первое число:")
