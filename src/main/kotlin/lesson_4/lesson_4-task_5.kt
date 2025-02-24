@@ -14,7 +14,7 @@ fun main() {
     val isWeatherGood: Boolean = readln().toBoolean()
 
     println("Корабль может выплывать:")
-    val go =
+    val shipCanSail =
         println(
             (boxesNumber > MIN_NUMBER_OF_BOXES) &&
                 (
