@@ -1,4 +1,4 @@
-package org.example.lesson_5
+package org.example.lesson_4
 
 fun main() {
     println("Наличие повреждений корпуса:")
