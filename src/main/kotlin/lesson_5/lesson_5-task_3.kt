@@ -1,7 +1,6 @@
 package org.example.lesson_5
 
 fun main() {
-
     val numberOne = 4
     val numberTwo = 17
 
@@ -11,23 +10,27 @@ fun main() {
     val userNumberTwo = readln().toInt()
 
     when (userNumberOne) {
-        numberOne -> when (userNumberTwo) {
-            numberTwo -> println("Поздравляем! Вы выиграли главный приз!")
-            else -> println("Вы выиграли утешительный приз!")
-        }
+        numberOne ->
+            if (userNumberTwo == numberTwo) {
+                println("Поздравляем! Вы выиграли главный приз!")
+            } else {
+                println("Вы выиграли утешительный приз!")
+            }
 
-        numberTwo -> when (userNumberTwo) {
-            numberOne -> println("Поздравляем! Вы выиграли главный приз!")
-            else -> println("Вы выиграли утешительный приз!")
-        }
+        numberTwo ->
+            if (userNumberTwo == numberOne) {
+                println("Поздравляем! Вы выиграли главный приз!")
+            } else {
+                println("Вы выиграли утешительный приз!")
+            }
 
-        else -> when (userNumberTwo) {
-            numberOne -> println("Вы выиграли утешительный приз!")
-            numberTwo -> println("Вы выиграли утешительный приз!")
-            else -> println("Неудача!")
-        }
+        else ->
+            if (userNumberTwo == numberOne) {
+                println("Вы выиграли утешительный приз!")
+            } else if (userNumberTwo == numberTwo) {
+                println("Вы выиграли утешительный приз!")
+            } else {
+                println("Неудача!")
+            }
     }
 }
-
-
-
