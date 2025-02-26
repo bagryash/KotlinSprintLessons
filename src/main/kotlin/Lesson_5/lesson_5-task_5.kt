@@ -1,9 +1,10 @@
 package org.example.lesson_5
 
 fun main() {
-    val numbers = mutableListOf((0..42).random(), (0..42).random(), (0..42).random())
+    val rangeOfNumbers = 0..42
+    val numbers = mutableListOf((rangeOfNumbers).random(), (rangeOfNumbers).random(), (rangeOfNumbers).random())
 
-    println("Введите три числа от 0 до 42")
+    println("Введите три числа от $rangeOfNumbers")
     val userNumber = mutableListOf(readln(), readln(), readln())
 
     val intersection = numbers.intersect(userNumber)
@@ -14,6 +15,8 @@ fun main() {
         2 -> println(TWO_COINCIDENCE)
         3 -> println(THREE_COINCIDENCE)
     }
+
+    println("Правильный ответ:\n" + numbers)
 }
 
 const val ZERO_COINCIDENCE = "Вы не угадали ни одного числа!"
