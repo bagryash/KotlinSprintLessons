@@ -1,5 +1,7 @@
 package org.example.lesson_7
 
+import org.example.lesson_2.ONE
+
 fun main() {
     println("Введите длину пароля(не менее 6 символов):")
     var numberOfCharactersInPassword = readln().toInt()
@@ -17,7 +19,7 @@ fun main() {
     var password = ""
     var randomCharacters = ""
 
-    for (i in 1..numberOfCharactersInPassword) {
+    for (i in ONE..numberOfCharactersInPassword) {
         val randomCharactersInPassword = (range).random()
         when (randomCharactersInPassword) {
             1 -> randomCharacters = (rangeCapitalLetters).random().toString()
