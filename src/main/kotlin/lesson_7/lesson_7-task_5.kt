@@ -4,9 +4,9 @@ fun main() {
     println("Введите длину пароля(не менее 6 символов):")
     var numberOfCharactersInPassword = readln().toInt()
 
-    while (numberOfCharactersInPassword < 6) {
-        println("Введите длину пароля(не менее 6 символов):")
-         numberOfCharactersInPassword = readln().toInt()
+    while (numberOfCharactersInPassword < SIX) {
+        println("Введите длину пароля(не менее $SIX символов):")
+        numberOfCharactersInPassword = readln().toInt()
     }
 
     val range = 1..3
@@ -29,3 +29,5 @@ fun main() {
 
     println(password)
 }
+
+const val SIX = 6
