@@ -15,16 +15,16 @@ fun main() {
     val rangeNumber = 1..9
 
     var password = ""
-    var random = ""
+    var randomCharacters = ""
 
     for (i in 1..numberOfCharactersInPassword) {
         val randomCharactersInPassword = (range).random()
         when (randomCharactersInPassword) {
-            1 -> random = (rangeCapitalLetters).random().toString()
-            2 -> random = (rangeLowercaseLetters).random().toString()
-            3 -> random = (rangeNumber).random().toString()
+            1 -> randomCharacters = (rangeCapitalLetters).random().toString()
+            2 -> randomCharacters = (rangeLowercaseLetters).random().toString()
+            3 -> randomCharacters = (rangeNumber).random().toString()
         }
-        password = password + random
+        password = password + randomCharacters
     }
 
     println(password)
