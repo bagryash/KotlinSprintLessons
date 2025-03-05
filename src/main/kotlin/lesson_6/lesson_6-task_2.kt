@@ -4,14 +4,11 @@ import java.lang.Thread.sleep
 
 fun main() {
     println("Введите количество секунд")
-    var seconds = readln().toInt()
+    val seconds = readln().toLong()
 
-    while (seconds > ZERO) {
-        sleep(1000)
-        seconds--
-    }
+    sleep(seconds * THOUSAND)
 
     println("Прошло $seconds секунд")
 }
 
-const val ZERO = 0
+const val THOUSAND = 1000
