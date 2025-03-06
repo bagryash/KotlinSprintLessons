@@ -1,6 +1,5 @@
 package org.example.lesson_8
 
-
 fun main() {
     var arrayOfIngredients =
         arrayOf(
@@ -26,9 +25,15 @@ fun main() {
     val x = desiredIngredient in arrayOfIngredients
     println(x)
 
-    if (x == true) println()
-    else println()
+    if (x == true) {
+        println(0)
+    } else {
+        println(1)
+    }
 
+    if (arrayOfIngredients.contains(desiredIngredient)) {
+        println(0)
+    } else {
+        println(1)
+    }
 }
-
-
