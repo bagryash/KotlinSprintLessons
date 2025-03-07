@@ -1,7 +1,5 @@
 package org.example.lesson_9
 
-import java.util.*
-
 fun main() {
     val range = 1..5
     println("Введите ингредиенты по одному:")
@@ -14,7 +12,7 @@ fun main() {
     val usersIngredientsList = usersIngredientsSet.toMutableList()
     usersIngredientsList.sort()
     val firstIngredient =
-        usersIngredientsList[0].replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+        usersIngredientsList[0].capitalize()
     usersIngredientsList[0] = firstIngredient
     println(usersIngredientsList)
 }
