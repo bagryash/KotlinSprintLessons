@@ -32,9 +32,7 @@ fun main() {
         println("Введите ингредиент, который хотите добавить:")
         val newIngredient = readln()
         arrayOfIngredients[indexOfDeleteIngredient] = newIngredient
-        println("Готово! Вы сохранили следующий список:")
-        for (i in arrayOfIngredients) {
-            println(i)
-        }
+        val arrayInString = arrayOfIngredients.joinToString(prefix = "[", postfix = "]")
+        println("Готово! Вы сохранили следующий список: $arrayInString")
     }
 }
