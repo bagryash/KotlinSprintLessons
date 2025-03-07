@@ -11,11 +11,10 @@ fun main() {
         usersIngredientsSet.add(ingredient)
     }
 
-    var usersIngredientsList = usersIngredientsSet.toMutableList()
+    val usersIngredientsList = usersIngredientsSet.toMutableList()
     usersIngredientsList.sort()
     val firstIngredient =
         usersIngredientsList[0].replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
     usersIngredientsList[0] = firstIngredient
-
     println(usersIngredientsList)
 }
