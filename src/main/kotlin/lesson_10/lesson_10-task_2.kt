@@ -14,14 +14,6 @@ fun main() {
     }
 }
 
-fun checkLength(data: String): Boolean {
-    val checkResult =
-        if (data.length >= MINIMUM_NUMBER_OF_CHARACTERS) {
-            true
-        } else {
-            false
-        }
-    return checkResult
-}
+fun checkLength(data: String): Boolean = data.length >= MINIMUM_NUMBER_OF_CHARACTERS
 
 const val MINIMUM_NUMBER_OF_CHARACTERS = 4
