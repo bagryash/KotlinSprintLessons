@@ -29,8 +29,7 @@ fun performAuthorization(
                 when (randomCharactersInPassword) {
                     1 -> rangeCapitalLetters.random()
                     2 -> rangeLowercaseLetters.random().toString()
-                    3 -> rangeNumber.random().toString()
-                    else -> throw IllegalStateException("Unexpected value")
+                    else -> rangeNumber.random().toString()
                 }
             token += randomCharacters
         }
