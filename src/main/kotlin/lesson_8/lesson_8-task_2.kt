@@ -21,6 +21,7 @@ fun main() {
     println("Введите игредиент, который хотите найти:")
     val desiredIngredient = readln()
     var isIngredientInArray = false
+
     for (i in arrayOfIngredients) {
         if (desiredIngredient == i) {
             isIngredientInArray = true
