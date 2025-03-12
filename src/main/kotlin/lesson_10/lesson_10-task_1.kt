@@ -6,11 +6,11 @@ fun main() {
     println("Бросает человек")
     sleep(1000)
     val x = throwDice()
-    sleep(THAU)
+    sleep(THOUSAND)
     println("Бросает машина")
-    sleep(THAU)
+    sleep(THOUSAND)
     val y = throwDice()
-    sleep(THAU)
+    sleep(THOUSAND)
     if (x > y) println("Победило человечество!")
     else if (y > x) println("Победила машина!")
     else println("Победила дружба!")
@@ -26,4 +26,4 @@ fun throwDice(): Int {
     return sum
 }
 
-const val THAU: Long = 1000
+const val THOUSAND = 1000L
