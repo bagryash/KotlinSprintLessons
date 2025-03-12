@@ -12,9 +12,9 @@ fun main() {
 
 fun throwDice(): Int {
     val cubeRange = 1..6
-    val meaningOfFirstCube = (cubeRange).random()
-    println(meaningOfFirstCube)
-    return meaningOfFirstCube
+    val meaningOfCube = (cubeRange).random()
+    println(meaningOfCube)
+    return meaningOfCube
 }
 
 fun play(): Int {
@@ -25,7 +25,7 @@ fun play(): Int {
     println("Бросает машина:")
     val robotDiceSum = throwDice() + throwDice()
     sleep(SLEEP_TIME)
-    var gameResult: Int
+    val gameResult: Int
 
     if (humanDiceSum > robotDiceSum) {
         println("Победило человечество!")
@@ -41,7 +41,7 @@ fun play(): Int {
 }
 
 fun continuePlaying(): Boolean {
-    println("Вы еще хотbте играть (да/нет)?:")
+    println("Вы еще хотите играть (да/нет)?:")
     val userResponse =
         if (readln() == "да") {
             true
