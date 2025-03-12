@@ -23,8 +23,7 @@ fun main() {
     var isIngredientInArray = false
 
     for (i in arrayOfIngredients) {
-        val isDesiredIngredientInArray = desiredIngredient == i
-        if (isDesiredIngredientInArray == true) {
+        if (desiredIngredient == i) {
             isIngredientInArray = true
         }
     }
