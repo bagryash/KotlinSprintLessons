@@ -54,4 +54,4 @@ fun giveListOfGoods(token: String?): Map<String, Int>? {
 const val ONE = 1
 const val THIRTY_TWO = 32
 const val USER_LOGIN = "user.user@mail.com"
-const val USER_PASSWORD = "Qwerty1234"
+const val USER_PASSWORD = "Qwerty1234!"
