@@ -47,11 +47,8 @@ fun giveListOfGoods(token: String?): Map<String, Int>? {
             "Чехол силиконовый противоударный" to 300,
             "Чехол с MagSafe" to 450,
         )
-    return if (token == null) {
-        null
-    } else {
-        goodsInCart
-    }
+    return if (token == null) null
+    else goodsInCart
 }
 
 const val ONE = 1
