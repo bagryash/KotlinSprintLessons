@@ -10,7 +10,7 @@ fun main() {
     println("Вы выиграли в $numberHumansWins играх")
 }
 
-fun throwDice(): Int {
+fun throwDiceNew(): Int {
     val cubeRange = 1..6
     val meaningOfCube = (cubeRange).random()
     println(meaningOfCube)
@@ -20,10 +20,10 @@ fun throwDice(): Int {
 fun play(): Int {
     println("Бросает человек:")
     sleep(SLEEP_TIME)
-    val humanDiceSum = throwDice() + throwDice()
+    val humanDiceSum = throwDiceNew() + throwDiceNew()
     sleep(SLEEP_TIME)
     println("Бросает машина:")
-    val robotDiceSum = throwDice() + throwDice()
+    val robotDiceSum = throwDiceNew() + throwDiceNew()
     sleep(SLEEP_TIME)
     val gameResult: Int
 
