@@ -12,31 +12,32 @@ fun main() {
     )
 }
 
-fun performAuthorization(
-    login: String,
-    password: String,
-): String? {
+fun generateToken(): String {
     val range = 1..3
     val rangeCapitalLetters = 'A'..'Z'
     val rangeLowercaseLetters = 'a'..'z'
     val rangeNumber = '1'..'9'
     var token = ""
 
-    if (login == USER_LOGIN && password == USER_PASSWORD) {
-        for (i in ONE..THIRTY_TWO) {
-            val randomCharactersInPassword = range.random()
-            val randomCharacters =
-                when (randomCharactersInPassword) {
-                    1 -> rangeCapitalLetters.random()
-                    2 -> rangeLowercaseLetters.random().toString()
-                    else -> rangeNumber.random().toString()
-                }
-            token += randomCharacters
-        }
-        return token
-    } else {
-        return null
+    for (i in ONE..THIRTY_TWO) {
+        val randomCharactersInPassword = range.random()
+        val randomCharacters =
+            when (randomCharactersInPassword) {
+                1 -> rangeCapitalLetters.random()
+                2 -> rangeLowercaseLetters.random().toString()
+                else -> rangeNumber.random().toString()
+            }
+        token += randomCharacters
     }
+    return token
+}
+
+fun performAuthorization(
+    login: String,
+    password: String,
+): String? {
+    if (login == USER_LOGIN && password == USER_PASSWORD) return generateToken()
+    else return null
 }
 
 fun giveListOfGoods(token: String?): Map<String, Int>? {
