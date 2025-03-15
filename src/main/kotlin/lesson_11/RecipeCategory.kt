@@ -1,27 +1,28 @@
 package org.example.lesson_11
 
 import java.awt.Image
+import javax.management.Descriptor
 
 class RecipeCategory(
     val id: Int,
-    val image: Image,
-    val categoryName: String,
+    var image: Image,
+    var categoryName: String,
+    var description : String,
+    var recipeList : List<Recipe>
 ) {}
 
 class Recipe(
     val id: Int,
-    val image: Image,
-    val category: String,
-    val ingredientsList: List<String>,
-    val methodOfPreparation: List<String>,
+    var image: Image,
+    var category: String,
+    var ingredientsList: List<Ingredient>,
+    var methodOfPreparation: List<String>,
     var isInFavorites: Boolean = false
 ) {}
 
-
 class Ingredient(
-    val id: Int,
+    val id: Int, //?
     var name: String,
-    val volume: Int,
-    val
+    val quantity : Int //?
 ) {}
 
