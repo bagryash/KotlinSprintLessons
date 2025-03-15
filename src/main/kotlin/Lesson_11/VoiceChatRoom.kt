@@ -1,32 +1,34 @@
 package org.example.Lesson_11
 
-import javax.swing.ImageIcon
-
 class VoiceChatRoom(
-    var roomIcon: ImageIcon,
-   var  roomName: String,
-    var users: List<String>
-
+    id: Int,
+    var roomIcon: Int,
+    var roomName: String,
+    private var usersMikeOn: List<Int>,
+    private var usersMikeMute: List<Int>,
+    private var usersWithMikeDisable: List<Int>
 ) {
 
-    fun addUser(){
-    users = users +
+    fun addUser(id: Int) {
+        usersMikeMute += id
     }
 
-    fun changeUserStatus(){
-
+    fun userMikeOn(id: Int) {
+        val newUserStatusId = readln().toInt()
+        usersMikeOn += newUserStatusId
+        usersMikeMute -= newUserStatusId
+        usersWithMikeDisable -= newUserStatusId
     }
 
 }
 
-
 public class User(
-   var userIcon: ImageIcon,
-   var userName: String,
-   var userStatus: String?
-
+    var id: Int,
+    var userIcon: Int,
+    var userName: String,
+    var login: String,
+    var password: String,
+    var userStatus: String,
+    var mikeStatus: String = "mute"
 ) {
-
-
-
 }
