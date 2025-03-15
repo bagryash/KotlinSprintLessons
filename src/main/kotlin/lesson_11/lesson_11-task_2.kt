@@ -6,6 +6,6 @@ fun main() {
 
     userThree.setBio()
     userThree.changePassword()
-    userThree.printUser()
+    userThree.printUser2()
 
 }

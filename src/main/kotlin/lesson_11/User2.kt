@@ -1,9 +1,5 @@
 package org.example.lesson_11
 
-class User {
-}
-
-
 class User2(
     val id: Int,
     val login: String,
@@ -11,12 +7,12 @@ class User2(
     val email: String,
     var bio: String?
 ) {
-    fun printUser() {
+    fun printUser2() {
         println("$id, $login, $password, $email, $bio")
     }
 
     fun setBio() {
-        println("Введите ваше био")
+        println("Введите вашу биографию:")
         bio = readln()
     }
 
@@ -24,7 +20,7 @@ class User2(
         println("Введите ваш пароль:")
         val userEnterPassword = readln()
         if ( userEnterPassword == password) {
-            println("Введите новый пароль")
+            println("Введите новый пароль:")
             password = readln()
             println("Ваш пароль успешно изменен!")
         } else println("Вы ввели неверный пароль!")
