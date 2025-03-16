@@ -8,3 +8,14 @@ fun main() {
     userOne.printUser()
     userTwo.printUser()
 }
+
+class User(
+    val id: Int,
+    val login: String,
+    val password: String,
+    val email: String,
+) {
+    fun printUser() {
+        println("$id, $login, $password, $email")
+    }
+}
