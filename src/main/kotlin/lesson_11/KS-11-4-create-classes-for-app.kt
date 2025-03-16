@@ -1,7 +1,6 @@
 package org.example.lesson_11
 
 import java.awt.Image
-import javax.management.Descriptor
 
 class RecipeCategory(
     val id: Int,
@@ -21,8 +20,8 @@ class Recipe(
 ) {}
 
 class Ingredient(
-    val id: Int, //?
+    val id: Int,
     var name: String,
-    val quantity : Int //?
+    val quantity : Int
 ) {}
 
