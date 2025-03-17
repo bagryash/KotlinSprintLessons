@@ -1,6 +1,5 @@
 package org.example.lesson_12
 
-
 class WeatherInDay() {
     var daytimeTemperature: Int = 25
     var temperatureAtNight: Int = 10
