@@ -6,7 +6,6 @@ class WeatherDayAndNight(
     var isPrecipitation: Boolean,
 ) {
 
-
     fun printlnWeatherDayAndNight() = println(
         """
         |Температура днем: $daytimeTemperature,
