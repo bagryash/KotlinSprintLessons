@@ -2,7 +2,7 @@ package org.example.Lesson_11
 
 fun main() {
     val room1 = VoiceChatRoom(1, 1, "Рыбалка", mutableListOf())
-    val alex = User ( 1, 999, "Alex", "alex@mail.com", "5z9q5a", "on" )
+    val alex = User(1, 999, "Alex", "alex@mail.com", "5z9q5a", "on")
 
     println("Какой пользователь вошел в комнату?:")
     val newUserInRoomName: User = alex
@@ -19,9 +19,7 @@ class VoiceChatRoom(
     var roomName: String,
     var users: MutableList<User>,
 ) {
-    fun addUser(
-        user: User,
-    ) {
+    fun addUser(user: User) {
         users += user
     }
 
