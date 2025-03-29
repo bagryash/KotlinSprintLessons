@@ -20,16 +20,13 @@ fun main() {
 
     println("Введите игредиент, который хотите найти:")
     val desiredIngredient = readln()
-    var isIngredientInArray = false
 
     for (i in arrayOfIngredients) {
         if (desiredIngredient == i) {
-            isIngredientInArray = true
+            println("Ингредиент $desiredIngredient в рецепте есть")
+            return
         }
     }
-    if (isIngredientInArray == true) {
-        println("Ингредиент $desiredIngredient в рецепте есть")
-    } else {
-        println("Такого ингредиента в рецепте нет")
-    }
+
+    println("Такого ингредиента в рецепте нет")
 }
