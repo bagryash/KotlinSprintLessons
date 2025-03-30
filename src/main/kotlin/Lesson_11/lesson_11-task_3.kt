@@ -8,8 +8,8 @@ fun main() {
     val newUserInRoomName: User = alex
     room1.addUser(newUserInRoomName)
 
-    println("Какой пользователь включил микрофон(id)?:")
-    val newUserWithMikeOn = readln().toInt()
+    println("Какой пользователь включил микрофон(userName)?:")
+    val newUserWithMikeOn = readln()
     room1.userMikeOn(newUserWithMikeOn)
 }
 
@@ -23,8 +23,10 @@ class VoiceChatRoom(
         users += user
     }
 
-    fun userMikeOn(id: Int) {
-        val newUserStatusId = readln().toInt()
+    fun userMikeOn(userName: String) {
+        users.forEach {
+            if (userName == it.userName) it.mikeStatus = "оn"
+        }
     }
 }
 
