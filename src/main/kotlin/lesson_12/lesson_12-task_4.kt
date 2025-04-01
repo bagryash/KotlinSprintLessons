@@ -1,15 +1,19 @@
 package org.example.lesson_12
 
 class WeatherWithTemperatureAndPrecipitation(
-    var daytimeTemperature: Int,
-    var temperatureAtNight: Int,
-    var isPrecipitation: Boolean,
+    daytimeTemperature: Int,
+    temperatureAtNight: Int,
+    isPrecipitation: Boolean,
 ) {
+    val daytimeTemperatureCelsius = daytimeTemperature - TEMP_IN_KELVIN
+    val temperatureAtNightCelsius = temperatureAtNight - TEMP_IN_KELVIN
+    val isPrecipitation = isPrecipitation
+
     init {
         println(
             """
-        |Температура днем: ${daytimeTemperature - TEMPERATURE_IN_KELVIN},
-        |Температура ночью: ${temperatureAtNight - TEMPERATURE_IN_KELVIN},
+        |Температура днем: $daytimeTemperatureCelsius,
+        |Температура ночью: $temperatureAtNightCelsius,
         |Осадки сегодня: $isPrecipitation
             """.trimMargin(),
         )
@@ -20,4 +24,4 @@ fun main() {
     val weather19012025 = WeatherWithTemperatureAndPrecipitation(285, 278, true)
 }
 
-const val TEMPERATURE_IN_KELVIN = 273
+const val TEMP_IN_KELVIN = 273
