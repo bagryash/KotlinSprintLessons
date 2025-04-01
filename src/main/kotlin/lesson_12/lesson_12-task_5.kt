@@ -7,21 +7,31 @@ class Weather(
 )
 
 fun main() {
-    val rangeTemperature = -3..10
+    val rangeDaytimeTemperature = 8..18
+    val rangeTemperatureAtNight = 1..6
     val rangeDays = 1..30
-    val range = true..false
 
     var weatherList = mutableListOf<Weather>()
 
     for (i in rangeDays) {
         val weather =
             Weather(
-                daytimeTemperature = (rangeTemperature).random(),
-                temperatureAtNight = (rangeTemperature).random(),
+                daytimeTemperature = (rangeDaytimeTemperature).random(),
+                temperatureAtNight = (rangeTemperatureAtNight).random(),
                 isPrecipitation = listOf(true, false).random(),
             )
+        weatherList += weather
     }
-    val averageDaytimeTemperature = weatherList.map { it.daytimeTemperature }.average()
 
-    println(averageDaytimeTemperature)
+    val averageDaytimeTemperature = weatherList.map { it.daytimeTemperature }.average()
+    val averageTemperatureAtNight = weatherList.map { it.temperatureAtNight }.average()
+    val numberOfDaysWitPrecipitation = weatherList.map { it.isPrecipitation }.filter { it == true }.size
+
+    println(
+        """
+        |Средняя дневная температура за месяц: $averageDaytimeTemperature
+        |Средняя ночная температура за месяц: $averageTemperatureAtNight
+        |Кодичество дней с осадками: $numberOfDaysWitPrecipitation
+        """.trimMargin(),
+    )
 }
