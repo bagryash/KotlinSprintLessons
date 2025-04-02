@@ -4,29 +4,34 @@ class PhoneBookContact(
     val name: String,
     val phoneNumber: Long?,
     var company: String?,
+)
+
+class PhoneBook(
+    val contacts: MutableList<PhoneBookContact> = mutableListOf(),
 ) {
-    init {
-        phoneNumber ?: println("Вы не ввели номер телефона. Контакт не добавлен")
+    fun addContact(
+        _name: String = readln(),
+        _phoneNumber: Long? = readln().toLongOrNull(),
+        _company: String? = readln(),
+    ) {
+        val newContact = PhoneBookContact(_name, _phoneNumber, _company)
+        if (_company == "") newContact.company = null
+        if (_phoneNumber == null) {
+            println("Вы не ввели номер телефона. Контакт не добавлен")
+        } else {
+            contacts += newContact
+        }
     }
 }
 
 fun main() {
-    val phoneBook = mutableListOf<PhoneBookContact>()
+    val phoneBook = PhoneBook()
 
-    println("Введите последовательно имя контакта, номер телефона и его компанию:")
-    val contactPhone =
-        PhoneBookContact(
-            readln(),
-            readln().toLongOrNull(),
-            readln(),
-        )
-    if (contactPhone.company == "") contactPhone.company = null
-    if (contactPhone.phoneNumber != null) phoneBook += contactPhone
+    val newContact = phoneBook.addContact()
 
-    phoneBook.forEach {
+    phoneBook.contacts.forEach {
         println(it.name)
         println(it.phoneNumber)
         println(it.company)
     }
-
 }
