@@ -5,7 +5,7 @@ class PhoneDirectoryWithPrint(
     val phoneNumber: Long,
     val company: String? = null
 ) {
-    val printInfo =
+    fun printInfo() =
         println(
                 "- Имя: $name\n" +
                 "- Номер: $phoneNumber\n" +
@@ -15,5 +15,5 @@ class PhoneDirectoryWithPrint(
 
 fun main() {
     val inessaPhone = PhoneDirectoryWithPrint("Инесса", 88002500890)
-    inessaPhone.printInfo
+    inessaPhone.printInfo()
 }
