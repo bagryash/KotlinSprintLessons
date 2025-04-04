@@ -2,7 +2,7 @@ package org.example.lesson_14
 
 open class Liner(
     val name: String,
-    val maxSpeed: Int = 48, //  км/ч
+    val maxSpeed: Int = 48,
     val numberOfPassengersAndCrew: Int = 9_000,
     val liftingCapacity: Int = 2_000,
     val isIcebreaker: Boolean = false,
@@ -12,7 +12,7 @@ open class Liner(
 
 class CargoShip(
     name: String,
-    maxSpeed: Int = 35, //  км/ч
+    maxSpeed: Int = 35,
     numberOfPassengersAndCrew: Int,
     liftingCapacity: Int,
     val isEnterRiverPorts: Boolean = true,
@@ -25,10 +25,10 @@ class CargoShip(
 class Icebreaker(
     name: String,
     isIcebreaker: Boolean = true,
-    maxSpeed: Int = 30, //  км/ч
+    maxSpeed: Int = 30,
     numberOfPassengersAndCrew: Int,
     liftingCapacity: Int,
-    val maxIceThickness: Int = 5, // метров
+    val maxIceThickness: Int = 5,
     val isNuclear: Boolean = false,
 ) : Liner(name, maxSpeed, numberOfPassengersAndCrew, liftingCapacity, isIcebreaker) {
     fun checkAtomicEngine() = println("Включена проверка силовой установки")
