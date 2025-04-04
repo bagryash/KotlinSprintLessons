@@ -23,6 +23,6 @@ fun main() {
                 readln(),
             )
     } catch (e: NumberFormatException) {
-        println("Ошибка: Введенное значение не является числом.")
+        println(e::class.simpleName)
     }
 }
