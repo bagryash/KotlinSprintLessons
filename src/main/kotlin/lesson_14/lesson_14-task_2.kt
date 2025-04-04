@@ -54,8 +54,8 @@ class Icebreaker(
         super.pintProperty()
         println(
             """
-            |Максимальная преодолеваемая толщина льда: $maxSpeed"
-            |Двигатель атомный: 
+            |Максимальная преодолеваемая толщина льда: $maxIceThickness"
+            |Двигатель атомный: $isNuclear
             """.trimMargin(),
         )
     }
