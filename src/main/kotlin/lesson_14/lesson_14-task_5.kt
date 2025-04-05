@@ -61,7 +61,7 @@ fun main() {
     val threadMessage12 = chat.addThreadMessage(message1.id, "ivanF", "Ну ты где?")
 
     val threadMessage21 = chat.addThreadMessage(message2.id, "alex", "Игорь, ты че не работаешь?")
-    val threadMessage22 = chat.addThreadMessage(message2.id, "igor", "я никогда не работаю:)")
+    val threadMessage22 = chat.addThreadMessage(message2.id, "igor", "а я никогда не работаю:)")
 
     chat.printChat()
 }
