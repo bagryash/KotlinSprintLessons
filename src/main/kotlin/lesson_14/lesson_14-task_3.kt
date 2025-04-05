@@ -32,6 +32,7 @@ class Rectangle(
 fun main() {
     val figureList = mutableListOf<Figure>()
     val whiteCircle = Circle("белый", 10.0)
+    figureList += whiteCircle
 
     val blackCircle = Circle("черный", 4.4)
     figureList += blackCircle
