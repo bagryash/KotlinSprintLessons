@@ -23,7 +23,7 @@ open class Ship(
         )
 }
 
-class CargoShip(
+class CargoShipNew(
     name: String,
     maxSpeed: Int = 35,
     numberOfPassengersAndCrew: Int,
@@ -37,7 +37,7 @@ class CargoShip(
     fun activateLoadingCrane() = println("Активирован погрузочный кран")
 }
 
-class Icebreaker(
+class IcebreakerNew(
     name: String,
     isIcebreaker: Boolean = true,
     maxSpeed: Int = 30,
@@ -63,8 +63,8 @@ class Icebreaker(
 
 fun main() {
     val liner = Ship("Глория", 40, 5_000, 1_000)
-    val cargoShip = CargoShip("Ever Given", 30, 50, 20_000, false)
-    val icebreaker = Icebreaker("Ленин", true, 17, 1000, 3_0000, 3, true)
+    val cargoShip = CargoShipNew("Ever Given", 30, 50, 20_000, false)
+    val icebreaker = IcebreakerNew("Ленин", true, 17, 1000, 3_0000, 3, true)
 
     liner.pintProperty()
     cargoShip.pintProperty()
