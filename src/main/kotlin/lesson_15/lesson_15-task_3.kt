@@ -1,36 +1,24 @@
 package org.example.lesson_15
 
-class Chat(
-    val messagesList: MutableList<Message> = mutableListOf(),
-) {
-    fun printChat() {
-        messagesList.forEach { message ->
-            println("${message.user}: ${message.message}")
-        }
-    }
-}
-
-class Message(
-    val id: Int,
-    val user: String,
-    val message: String,
-)
-
 abstract class User(
     val id: Int,
     val image: Int,
     val name: String,
 ) {
     fun createMessage(
-        chat: Chat,
         id: Int,
         user: User,
         message: String,
-    ): Message {
-        val newMessage = Message(id, user.name, message)
-        println("${user.name}: $message")
-        chat.messagesList += newMessage
+    ): String {
+        val newMessage = "${user.name}: $message"
+        println(newMessage)
         return newMessage
+    }
+
+    fun readChat(chat: MutableList<String>) {
+        chat.forEach {
+            println(it)
+        }
     }
 }
 
@@ -45,26 +33,50 @@ class Admin(
     image: Int,
     name: String,
 ) : User(id, image, name) {
-    fun deleteMessage(
-        chat: Chat,
-        message: Message,
-    ): Message {
-        val deleteMessage = Message(message.id, message.user, message.message)
-        println("Модератор  удалил сообщение")
-        chat.messagesList.remove(message)
-        return deleteMessage
+    fun deleteMessage(deleteMessage: String): String {
+        val deleteMessege = deleteMessage
+        println("Модератор удалил сообщение")
+        return deleteMessege
+    }
+
+    fun deleteUser(user: SimpleUser): SimpleUser {
+        val deleteUser = user
+        println("Модератор удалил пользователя ${user.name}")
+        return deleteUser
     }
 }
 
 fun main() {
-    val chat = Chat()
-
+    val usersList = mutableListOf<User>()
     val robotBender = Admin(1, 1, "robot Bender")
+    usersList += robotBender
     val userAlex = SimpleUser(2, 2, "Alex")
+    usersList += userAlex
+    usersList.forEach {
+        println(it.name + ": " + it::class.simpleName)
+    }
+    println()
 
-    val message1 = robotBender.createMessage(chat, 1, robotBender, "Добро пожаловать в наш чат, Alex")
-    val message2 = userAlex.createMessage(chat, 2, userAlex, "Всем привет!")
-    val deleteMessage1 = robotBender.deleteMessage(chat, message2)
+    val chat = mutableListOf<String>()
+    val message1 = robotBender.createMessage(1, robotBender, "Добро пожаловать в наш чат, Alex")
+    chat += message1
+    val message2 = userAlex.createMessage(2, userAlex, "Всем привет!")
+    chat += message2
+    val message3 = robotBender.createMessage(3, robotBender, "Ты здесь зачем?")
+    chat += message3
+    val message4 = userAlex.createMessage(4, userAlex, "Я здесь просто так")
+    chat += message4
+    val deleteMessage1 = robotBender.deleteMessage(message4)
+    chat -= deleteMessage1
+    println()
+    userAlex.readChat(chat)
+    println()
+    robotBender.readChat(chat)
+    println()
+    val deleteUser = robotBender.deleteUser(userAlex)
 
-    chat.printChat()
+    usersList -= deleteUser
+    usersList.forEach {
+        println(it.name + ": " + it::class.simpleName)
+    }
 }
