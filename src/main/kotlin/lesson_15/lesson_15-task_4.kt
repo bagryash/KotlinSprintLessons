@@ -1,6 +1,6 @@
 package org.example.lesson_15
 
-abstract class Products(
+abstract class Product(
     val name: String,
     val quantity: Int,
     val price: Int,
@@ -20,19 +20,19 @@ class MusicalInstrument(
     manufacturer: String,
     val category: String,
     val yearOfRelease: Int,
-) : Products(name, quantity, price, manufacturer),
+) : Product(name, quantity, price, manufacturer),
     Instrument {
     override fun searchAccessories() = println("Выполняется поиск аксессуаров")
 }
 
-class Accessories(
+class Accessorie(
     name: String,
     quantity: Int,
     price: Int,
     manufacturer: String,
     val instrument: MusicalInstrument,
     val isOriginal: Boolean,
-) : Products(name, quantity, price, manufacturer)
+) : Product(name, quantity, price, manufacturer)
 
 fun main() {
     val fenderStratocaster =
@@ -46,7 +46,7 @@ fun main() {
         )
 
     val fenderStrings =
-        Accessories(
+        Accessorie(
             "Струны для электрогитары Fender",
             100,
             900,
@@ -56,7 +56,7 @@ fun main() {
         )
 
     val fenderStringsChina =
-        Accessories(
+        Accessorie(
             "Струны для электрогитары Fender",
             100,
             900,
