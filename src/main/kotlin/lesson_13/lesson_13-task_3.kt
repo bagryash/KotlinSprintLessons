@@ -27,10 +27,12 @@ fun main() {
     val dmitryPhone = TelephoneDirectoryWithAllRecords("Дмитрий", 848001006427, "null")
     contactsList += dmitryPhone
 
-    val allCompanyList: MutableSet<String> = mutableSetOf()
-    contactsList.forEach {
-        if (it.company != null) allCompanyList += it.company
-    }
+    val allCompanyList: MutableSet<String> =
+        contactsList
+            .mapNotNull {
+                it.company
+            }.toMutableSet()
+
     println("Список всех компаний:")
     allCompanyList.forEach {
         println(it)
