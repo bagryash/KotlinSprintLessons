@@ -25,7 +25,7 @@ class MusicalInstrument(
     override fun searchAccessories() = println("Выполняется поиск аксессуаров")
 }
 
-class Accessorie(
+class AdditionalProduct(
     name: String,
     quantity: Int,
     price: Int,
@@ -46,7 +46,7 @@ fun main() {
         )
 
     val fenderStrings =
-        Accessorie(
+        AdditionalProduct(
             "Струны для электрогитары Fender",
             100,
             900,
@@ -56,7 +56,7 @@ fun main() {
         )
 
     val fenderStringsChina =
-        Accessorie(
+        AdditionalProduct(
             "Струны для электрогитары Fender",
             100,
             900,
