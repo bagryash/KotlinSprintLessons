@@ -1,58 +1,98 @@
 package org.example.lesson_1
 
-abstract class Car(
-    val name: String,
-    val type: String,
-) {
-    fun runToA() = println("Машина $name едет в пункт А")
-
-    fun runToB() = println("Машина $name едет в пункт В")
-}
-
 class PassengerCar(
     name: String,
     type: String,
-) : Car(name, type),
-    PassengerTransportation
+) : Moveable,
+    PassengerTransportable
 
 class Track(
     name: String,
     type: String,
-) : Car(name, type),
-    CargoTransportation
+) : Moveable,
+    CargoTransportable
 
-interface PassengerTransportation {
-    fun loading(number: Int) = println("В машину сели $number пассажира")
-
-    fun discharge(number: Int) = println("Из машины вышли $number пассажира")
+interface Moveable {
+    fun move(direction: String) = println("Машина едет в пункт $direction")
 }
 
-interface CargoTransportation {
-    fun loadingPassengers() = println("В грузовик сел 1 пассажир")
+interface PassengerTransportable {
+    fun loading(
+        number: Int,
+        passengersNow: Int,
+    ): Int {
+        val passengers = number - passengersNow
+        if (number <= NUMBER_OF_PASSENGERS_MAX && (passengers > 0)) println("В машину сели $number пассажира")
+        return passengers
+    }
 
-    fun dischargePassenger() = println("Из грузовика вышел 1 пассажир")
+    fun transportPassengers(
+        number: Int,
+        direction: String,
+    ) = println("Машина везет $number пассажиров в пункт $direction")
 
-    fun loadingCargo() = println("В грузовик загрузили 2т груза")
+    fun discharge(number: Int): Int {
+        val passengers = number
+        println("Из машины вышли $passengers пассажира")
+        return passengers
+    }
+}
 
-    fun dischargePCargo() = println("В грузовика выгрузили 2т груза")
+interface CargoTransportable {
+    fun loadingCargo(
+        number: Int,
+        weightNow: Int,
+    ): Int {
+        val weight = number - weightNow
+        if (number <= CARGO_WEIGHT_MAX && (weight > 0)) println("В грузовик загрузили ${weight}кг груза")
+        return weight
+    }
+
+    fun transportCargo(
+        number: Int,
+        direction: String,
+    ): Int {
+        val weight = number
+        println("Грузовика везет ${number}кг груза в пункт $direction")
+        return weight
+    }
+
+    fun unloadCargo(number: Int): Int {
+        val weight = number
+        println("Грузовика разгрузил ${number}кг груза")
+        return weight
+    }
 }
 
 fun main() {
     val audi = PassengerCar("audi 80", "Легковой")
     val gasel = Track("Газель", "Грузовая")
-    audi.runToA()
-    gasel.runToA()
-    audi.loading(3)
-    gasel.loadingPassengers()
-    gasel.loadingCargo()
-    audi.runToB()
-    gasel.runToB()
-    audi.discharge(3)
-    gasel.dischargePassenger()
-    gasel.dischargePCargo()
-    println()
-    audi.runToA()
-    audi.loading(2)
-    audi.runToB()
-    audi.discharge(2)
+    var audiPassengersNow = 0
+    var gaselCargoNow = 0
+
+    var passengersInB = 0
+    var cargoinB = 0
+
+    println("Перевозка пассажиров:")
+    while (passengersInB < NUMBER_OF_PASSENGERS_) {
+        audi.move("A")
+        val passengers = audi.loading(3, audiPassengersNow)
+        audi.transportPassengers(passengers, "B")
+        passengersInB += audi.discharge(passengers)
+    }
+
+    println("\nПеревозка груза:")
+    while (cargoinB < CARGO_WEIGHT_MAX) {
+        gasel.move("A")
+        val cargoWight = gasel.loadingCargo(CARGO_WEIGHT, gaselCargoNow)
+        gasel.transportCargo(cargoWight, "B")
+        cargoinB += gasel.unloadCargo(cargoWight)
+    }
+
+    println("\nПеревезено $passengersInB пассажиров и ${cargoinB}кг груза")
 }
+
+const val NUMBER_OF_PASSENGERS_ = 6
+const val CARGO_WEIGHT = 2000
+const val NUMBER_OF_PASSENGERS_MAX = 3
+const val CARGO_WEIGHT_MAX = 2000
