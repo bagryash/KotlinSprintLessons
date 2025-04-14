@@ -10,13 +10,12 @@ class User(
 fun main() {
     val userAlex = User("alex@mail.mail", "85.)-3+63)94")
 
-    fun checkLoginPassword() {
-        val login = readln()
-        if (login == userAlex.userLogin) {
-            println("Введите пароль:")
-            val password = readln()
-            if (password == userAlex.getPassword()) {
-            }
-        }
-    }
+    fun checkCredentials(
+        login: String = readln(),
+        password: String = readln(),
+    ): Boolean = login == userAlex.userLogin && password == userAlex.getPassword()
+
+    println("Введите по очереди логин и пароль:")
+    if (checkCredentials() == true) println("Добро пожаловать!")
+    else println("Доступ запрещен")
 }
