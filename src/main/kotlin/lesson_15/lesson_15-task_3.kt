@@ -34,10 +34,8 @@ class Admin(
 
     override fun showActions() = println("Модератор $name: читает форум, пишет сообщения, удаляет пользователей, удаляет сообщения\"")
 
-    fun deleteMessage(deleteMessage: String): String {
-        val deleteMessege = deleteMessage
+    fun deleteMessage(deleteMessage: String) {
         println("Модератор $adminName удалил сообщение")
-        return deleteMessege
     }
 
     fun deleteUser(user: SimpleUser): SimpleUser {
@@ -54,24 +52,28 @@ fun main() {
     val userAlex = SimpleUser(2, 2, "Alex")
     usersList += userAlex
     println()
+
     robotBender.showActions()
     userAlex.showActions()
     println()
-    val chat = mutableListOf<String>()
-    val message1 = robotBender.writeMessage(1, "Добро пожаловать в наш чат, Alex")
-    val message2 = userAlex.writeMessage(2, "Всем привет!")
-    val message3 = robotBender.writeMessage(3, "Ты здесь зачем?")
-    val message4 = userAlex.writeMessage(4, "Я здесь просто так")
+
+    robotBender.writeMessage(1, "Добро пожаловать в наш чат, Alex")
+    userAlex.writeMessage(2, "Всем привет!")
+    robotBender.writeMessage(3, "Ты здесь зачем?")
+    userAlex.writeMessage(4, "Я здесь просто так")
     println()
+
     robotBender.readChat()
     userAlex.readChat()
     println()
-    val deleteMessage1 = robotBender.deleteMessage("Я здесь просто так")
-    chat -= deleteMessage1
+
+    robotBender.deleteMessage("Я здесь просто так")
     println()
+
     userAlex.readChat()
     robotBender.readChat()
     println()
+
     val deleteUser = robotBender.deleteUser(userAlex)
     println("Пользователи в чате:")
     usersList -= deleteUser
