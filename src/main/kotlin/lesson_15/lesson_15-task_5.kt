@@ -19,10 +19,11 @@ interface Moveable {
 interface PassengerTransportable {
     fun loading(
         number: Int,
-        passengersNow: Int,
+        numberOfOccupiedSeats: Int,
+        numberOfSeatsMax: Int = NUMBER_OF_PASSENGERS_MAX,
     ): Int {
-        val passengers = number - passengersNow
-        if (number <= NUMBER_OF_PASSENGERS_MAX && (passengers > 0)) println("В машину сели $number пассажира")
+        val passengers = number - numberOfOccupiedSeats
+        if (number <= numberOfSeatsMax && (passengers > 0)) println("В машину сели $number пассажира")
         return passengers
     }
 
@@ -31,8 +32,7 @@ interface PassengerTransportable {
         direction: String,
     ) = println("Машина везет $number пассажиров в пункт $direction")
 
-    fun discharge(number: Int): Int {
-        val passengers = number
+    fun discharge(passengers: Int): Int {
         println("Из машины вышли $passengers пассажира")
         return passengers
     }
@@ -42,24 +42,23 @@ interface CargoTransportable {
     fun loadingCargo(
         number: Int,
         weightNow: Int,
+        weightMax: Int = CARGO_WEIGHT_MAX,
     ): Int {
         val weight = number - weightNow
-        if (number <= CARGO_WEIGHT_MAX && (weight > 0)) println("В грузовик загрузили ${weight}кг груза")
+        if (number <= weightMax && (weight > 0)) println("В грузовик загрузили ${weight}кг груза")
         return weight
     }
 
     fun transportCargo(
-        number: Int,
+        weight: Int,
         direction: String,
     ): Int {
-        val weight = number
-        println("Грузовика везет ${number}кг груза в пункт $direction")
+        println("Грузовика везет ${weight}кг груза в пункт $direction")
         return weight
     }
 
-    fun unloadCargo(number: Int): Int {
-        val weight = number
-        println("Грузовика разгрузил ${number}кг груза")
+    fun unloadCargo(weight: Int): Int {
+        println("Грузовика разгрузил ${weight}кг груза")
         return weight
     }
 }
@@ -74,7 +73,7 @@ fun main() {
     var cargoinB = 0
 
     println("Перевозка пассажиров:")
-    while (passengersInB < NUMBER_OF_PASSENGERS_) {
+    while (passengersInB < NUMBER_OF_PASSENGERS) {
         audi.move("A")
         val passengers = audi.loading(3, audiPassengersNow)
         audi.transportPassengers(passengers, "B")
@@ -92,7 +91,7 @@ fun main() {
     println("\nПеревезено $passengersInB пассажиров и ${cargoinB}кг груза")
 }
 
-const val NUMBER_OF_PASSENGERS_ = 6
+const val NUMBER_OF_PASSENGERS = 6
 const val CARGO_WEIGHT = 2000
 const val NUMBER_OF_PASSENGERS_MAX = 3
 const val CARGO_WEIGHT_MAX = 2000
