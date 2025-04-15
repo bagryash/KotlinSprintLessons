@@ -1,21 +1,20 @@
 package org.example.Lesson_16
 
 class User(
-    val userLogin: String,
+    private val userLogin: String,
     private val userPassword: String,
 ) {
-    fun getPassword() = userPassword
+    fun checkPassword(password: String): Boolean = password == userPassword
 }
 
 fun main() {
     val userAlex = User("alex@mail.mail", "85.)-3+63)94")
 
-    fun checkCredentials(
-        login: String = readln(),
-        password: String = readln(),
-    ): Boolean = login == userAlex.userLogin && password == userAlex.getPassword()
+    fun enterPassword(): String = readln()
 
-    println("Введите по очереди логин и пароль:")
-    if (checkCredentials() == true) println("Добро пожаловать!")
-    else println("Доступ запрещен")
+    if (userAlex.checkPassword(enterPassword()) == true) {
+        println("Добро пожаловать!")
+    } else {
+        println("Вход запрещен")
+    }
 }
