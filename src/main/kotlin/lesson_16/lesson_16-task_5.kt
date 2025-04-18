@@ -3,7 +3,7 @@ package org.example.Lesson_16
 class Player(
     val nave: String,
     private var health: Int = HEALTH_MAX,
-    var impactForce: Int = IMPACT_FORCE,
+    private var impactForce: Int = IMPACT_FORCE,
 ) {
     var powerOfTreatment = POWER_OF_TREATMENT
 
@@ -17,6 +17,7 @@ class Player(
         if (health > NUMBER_ZERO) {
             println("Тебя подлечили! +${powerOfTreatment}hp")
             health += powerOfTreatment
+            if (health > HEALTH_MAX) health = HEALTH_MAX
         }
     }
 
@@ -44,4 +45,3 @@ const val HEALTH_MAX = 100
 const val NUMBER_ZERO = 0
 const val IMPACT_FORCE = 20
 const val POWER_OF_TREATMENT = 10
-
