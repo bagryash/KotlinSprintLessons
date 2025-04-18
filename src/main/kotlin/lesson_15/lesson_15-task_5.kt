@@ -73,29 +73,29 @@ fun main() {
     var audiPassengersNow = 0
     var gaselCargoNow = 0
 
-    var passengersInB = 0
-    var cargoinB = 0
+    var passengersInPointB = 0
+    var cargoInPointB = 0
 
     println("Перевозка пассажиров:")
-    while (passengersInB < NUMBER_OF_PASSENGERS) {
+    while (passengersInPointB < NUMBER_OF_PASSENGERS) {
         audi.move("A")
-        val passengers = audi.loading(3, audiPassengersNow)
+        val passengers = audi.loading(NUMBER_OF_PASSENGERS_MAX, audiPassengersNow)
         audi.transportPassengers(passengers, "B")
-        passengersInB += audi.discharge(passengers)
+        passengersInPointB += audi.discharge(passengers)
     }
 
     println("\nПеревозка груза:")
-    while (cargoinB < CARGO_WEIGHT) {
+    while (cargoInPointB < CARGO_WEIGHT) {
         gasel.move("A")
-        val cargoWight = gasel.loadingCargo(CARGO_WEIGHT, gaselCargoNow)
+        val cargoWight = gasel.loadingCargo(CARGO_WEIGHT_MAX, gaselCargoNow)
         gasel.transportCargo(cargoWight, "B")
-        cargoinB += gasel.unloadCargo(cargoWight)
+        cargoInPointB += gasel.unloadCargo(cargoWight)
     }
 
-    println("\nПеревезено $passengersInB пассажиров и ${cargoinB}кг груза")
+    println("\nПеревезено $passengersInPointB пассажиров и ${cargoInPointB}кг груза")
 }
 
 const val NUMBER_OF_PASSENGERS = 6
 const val CARGO_WEIGHT = 2000
-const val NUMBER_OF_PASSENGERS_MAX = 3
+const val NUMBER_OF_PASSENGERS_MAX = 6
 const val CARGO_WEIGHT_MAX = 2000
