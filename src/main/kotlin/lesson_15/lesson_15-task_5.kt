@@ -10,7 +10,7 @@ class PassengerCar(
 class Track(
     name: String,
     type: String,
-    override val weightMax: Int = NUMBER_OF_PASSENGERS_MAX,
+    override val weightMax: Int = CARGO_WEIGHT_MAX,
 ) : Moveable,
     CargoTransportable
 
@@ -85,7 +85,7 @@ fun main() {
     }
 
     println("\nПеревозка груза:")
-    while (cargoinB < CARGO_WEIGHT_MAX) {
+    while (cargoinB < CARGO_WEIGHT) {
         gasel.move("A")
         val cargoWight = gasel.loadingCargo(CARGO_WEIGHT, gaselCargoNow)
         gasel.transportCargo(cargoWight, "B")
