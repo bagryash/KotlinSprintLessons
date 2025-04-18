@@ -3,12 +3,14 @@ package org.example.lesson_1
 class PassengerCar(
     name: String,
     type: String,
+    override val numberOfSeatsMax: Int = NUMBER_OF_PASSENGERS_MAX,
 ) : Moveable,
     PassengerTransportable
 
 class Track(
     name: String,
     type: String,
+    override val weightMax: Int = NUMBER_OF_PASSENGERS_MAX,
 ) : Moveable,
     CargoTransportable
 
@@ -17,10 +19,11 @@ interface Moveable {
 }
 
 interface PassengerTransportable {
+    val numberOfSeatsMax: Int
+
     fun loading(
         number: Int,
         numberOfOccupiedSeats: Int,
-        numberOfSeatsMax: Int = NUMBER_OF_PASSENGERS_MAX,
     ): Int {
         val passengers = number - numberOfOccupiedSeats
         if (number <= numberOfSeatsMax && (passengers > 0)) println("В машину сели $number пассажира")
@@ -39,10 +42,11 @@ interface PassengerTransportable {
 }
 
 interface CargoTransportable {
+    val weightMax: Int
+
     fun loadingCargo(
         number: Int,
         weightNow: Int,
-        weightMax: Int = CARGO_WEIGHT_MAX,
     ): Int {
         val weight = number - weightNow
         if (number <= weightMax && (weight > 0)) println("В грузовик загрузили ${weight}кг груза")
