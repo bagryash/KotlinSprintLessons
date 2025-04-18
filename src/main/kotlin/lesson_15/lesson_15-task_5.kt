@@ -97,5 +97,5 @@ fun main() {
 
 const val NUMBER_OF_PASSENGERS = 6
 const val CARGO_WEIGHT = 2000
-const val NUMBER_OF_PASSENGERS_MAX = 6
+const val NUMBER_OF_PASSENGERS_MAX = 3
 const val CARGO_WEIGHT_MAX = 2000
