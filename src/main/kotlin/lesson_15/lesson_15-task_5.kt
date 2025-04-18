@@ -57,12 +57,12 @@ interface CargoTransportable {
         weight: Int,
         direction: String,
     ): Int {
-        println("Грузовика везет ${weight}кг груза в пункт $direction")
+        println("Грузовик везет ${weight}кг груза в пункт $direction")
         return weight
     }
 
     fun unloadCargo(weight: Int): Int {
-        println("Грузовика разгрузил ${weight}кг груза")
+        println("Грузовик разгрузил ${weight}кг груза")
         return weight
     }
 }
@@ -73,23 +73,43 @@ fun main() {
     var audiPassengersNow = 0
     var gaselCargoNow = 0
 
+    var passengersInPointA = NUMBER_OF_PASSENGERS
+    var cargoInPointA = CARGO_WEIGHT
+
     var passengersInPointB = 0
     var cargoInPointB = 0
 
     println("Перевозка пассажиров:")
     while (passengersInPointB < NUMBER_OF_PASSENGERS) {
         audi.move("A")
-        val passengers = audi.loading(NUMBER_OF_PASSENGERS_MAX, audiPassengersNow)
+        val passengers =
+            if (passengersInPointA >= NUMBER_OF_PASSENGERS_MAX) {
+                audi.loading(
+                    NUMBER_OF_PASSENGERS_MAX,
+                    audiPassengersNow,
+                )
+            } else {
+                audi.loading(passengersInPointA, audiPassengersNow)
+            }
         audi.transportPassengers(passengers, "B")
-        passengersInPointB += audi.discharge(passengers)
+        audi.discharge(passengers)
+        passengersInPointB += passengers
+        passengersInPointA -= passengers
     }
 
     println("\nПеревозка груза:")
     while (cargoInPointB < CARGO_WEIGHT) {
         gasel.move("A")
-        val cargoWight = gasel.loadingCargo(CARGO_WEIGHT_MAX, gaselCargoNow)
+        val cargoWight =
+            if (cargoInPointA >= CARGO_WEIGHT_MAX) {
+                gasel.loadingCargo(CARGO_WEIGHT_MAX, gaselCargoNow)
+            } else {
+                gasel.loadingCargo(cargoInPointA, gaselCargoNow)
+            }
         gasel.transportCargo(cargoWight, "B")
-        cargoInPointB += gasel.unloadCargo(cargoWight)
+        gasel.unloadCargo(cargoWight)
+        cargoInPointB += cargoWight
+        cargoInPointA -= cargoWight
     }
 
     println("\nПеревезено $passengersInPointB пассажиров и ${cargoInPointB}кг груза")
