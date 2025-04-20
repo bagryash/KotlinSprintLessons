@@ -1,15 +1,18 @@
 package org.example.lesson_17
 
-class QuizElement(
-    _question: String,
-    _answer: String,
+class lement(
+    quizQuestion: String,
+    quizAnswer: String,
 ) {
-    val question: String = _question
-        get() = field
-    var answer: String = _answer
-        get() = field
-        set(answer) {
-            field = answer
+    private val _question = quizQuestion
+    private var _answer = quizAnswer
+
+    val question: String
+        get() = _question
+    var answer: String
+        get() = _answer
+        set(value) {
+            _answer = value
         }
 }
 
