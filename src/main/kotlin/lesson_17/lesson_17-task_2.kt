@@ -9,8 +9,8 @@ class Ship(
         set(value) {
             println("Невозможно переименовать корабль!")
         }
-    val speedMax = _speedMax
-    val shipsHomePort = _shipsHomePort
+    private val speedMax = _speedMax
+    private val shipsHomePort = _shipsHomePort
 }
 
 fun main() {
