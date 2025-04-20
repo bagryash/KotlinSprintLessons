@@ -1,6 +1,6 @@
 package org.example.lesson_17
 
-class lement(
+class QuizElement(
     quizQuestion: String,
     quizAnswer: String,
 ) {
