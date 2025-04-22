@@ -25,7 +25,7 @@ class UserData(
 }
 
 fun main() {
-    val user = UserData("alex", "47-2874*5398")
+    val user = UserData("alex", "7a6f4q-6u9z8c")
 
     println(user.userPassword)
     user.userPassword = "djfhjdhf93883"
