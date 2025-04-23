@@ -11,12 +11,9 @@ class UserData(
             println("Логин успешно изменен")
         }
 
-    var userPassword: String
+    var userPassword: String = ""
         get() {
-            var starPassword = ""
-            for (i in password.iterator()) {
-                starPassword += "*"
-            }
+            var starPassword = "*".repeat(field.length)
             return starPassword
         }
         set(value) {
