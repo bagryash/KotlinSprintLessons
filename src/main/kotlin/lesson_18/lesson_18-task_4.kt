@@ -11,13 +11,13 @@ class RectangularBox(
     val width: Double,
     val height: Double,
 ) : Box() {
-    override fun squre() = 2 * (length * width + length * height + height * width)
+    override fun squre() = TWO * (length * width + length * height + height * width)
 }
 
 class CubeBox(
     val length: Double,
 ) : Box() {
-    override fun squre() = 6 * (length.pow(2))
+    override fun squre() = SIX * (length.pow(TWO))
 }
 
 fun main() {
@@ -32,3 +32,6 @@ fun main() {
         println(it.squre())
     }
 }
+
+const val TWO = 2
+const val SIX = 6
