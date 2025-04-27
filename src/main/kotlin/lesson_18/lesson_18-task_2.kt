@@ -1,23 +1,18 @@
 package org.example.lesson_18
 
 abstract class Dice(
-    val numberOfFaces: Int,
-    val range: IntRange = ONE..numberOfFaces,
+    numberOfFaces: Int,
 ) {
-    open fun rollDice() = println()
+    val range: IntRange = ONE..numberOfFaces
+
+    fun rollDice() = println((range).random())
 }
 
-class FourSidedDice : Dice(4) {
-    override fun rollDice() = println((range).random())
-}
+class FourSidedDice : Dice(4)
 
-class HexagonalDice : Dice(6) {
-    override fun rollDice() = println((range).random())
-}
+class HexagonalDice : Dice(6)
 
-class OctahedralDice : Dice(8) {
-    override fun rollDice() = println((range).random())
-}
+class OctahedralDice : Dice(8)
 
 fun main() {
     val dice4: Dice = FourSidedDice()
