@@ -4,9 +4,9 @@ abstract class Tamagotchi(
     val name: String,
     val food: String,
 ) {
-    open fun sleep() = println("$name -> спит")
+    fun sleep() = println("$name -> спит")
 
-    open fun eatFood() = println("$name -> ест $food")
+    fun eatFood() = println("$name -> ест $food")
 }
 
 class Dog(
@@ -27,6 +27,8 @@ fun main() {
     val fox: Tamagotchi = Fox("Рыжик")
 
     val animalList = listOf(dog, cat, fox)
+
+    animalList.forEach { it.sleep() }
 
     animalList.forEach { it.eatFood() }
 }
