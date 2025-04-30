@@ -21,7 +21,7 @@ class Person(
 
 fun main() {
     var fileCabinet = listOf<Person>()
-    var counter = FIVE
+    var counter = FIVE_NEW
 
     println(
         """
@@ -46,4 +46,4 @@ fun main() {
     }
 }
 
-const val FIVE = 5
+const val FIVE_NEW = 5
