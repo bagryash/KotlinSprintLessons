@@ -1,9 +1,10 @@
-package org.example.lesson_1
+package org.example.lesson_15
 
 class PassengerCar(
     name: String,
     type: String,
     override val numberOfSeatsMax: Int = NUMBER_OF_PASSENGERS_MAX,
+    var passengersNow: Int = 0,
 ) : Moveable,
     PassengerTransportable
 
@@ -11,6 +12,7 @@ class Track(
     name: String,
     type: String,
     override val weightMax: Int = CARGO_WEIGHT_MAX,
+    var cargoNow: Int = 0,
 ) : Moveable,
     CargoTransportable
 
@@ -68,46 +70,51 @@ interface CargoTransportable {
 }
 
 fun main() {
+    val numberOfPassengers = 6
+    val cargoWight = 2000
+
     val audi = PassengerCar("audi 80", "Легковой")
     val gasel = Track("Газель", "Грузовая")
-    var audiPassengersNow = 0
-    var gaselCargoNow = 0
 
-    var passengersInPointA = NUMBER_OF_PASSENGERS
-    var cargoInPointA = CARGO_WEIGHT
+    var passengersInPointA = numberOfPassengers
+    var cargoInPointA = cargoWight
 
     var passengersInPointB = 0
     var cargoInPointB = 0
 
     println("Перевозка пассажиров:")
-    while (passengersInPointB < NUMBER_OF_PASSENGERS) {
+    while (passengersInPointB < numberOfPassengers) {
         audi.move("A")
         val passengers =
             if (passengersInPointA >= NUMBER_OF_PASSENGERS_MAX) {
                 audi.loading(
                     NUMBER_OF_PASSENGERS_MAX,
-                    audiPassengersNow,
+                    audi.passengersNow,
                 )
             } else {
-                audi.loading(passengersInPointA, audiPassengersNow)
+                audi.loading(passengersInPointA, audi.passengersNow)
             }
+        audi.passengersNow = passengers
         audi.transportPassengers(passengers, "B")
         audi.discharge(passengers)
+        audi.passengersNow -= passengers
         passengersInPointB += passengers
         passengersInPointA -= passengers
     }
 
     println("\nПеревозка груза:")
-    while (cargoInPointB < CARGO_WEIGHT) {
+    while (cargoInPointB < cargoWight) {
         gasel.move("A")
         val cargoWight =
             if (cargoInPointA >= CARGO_WEIGHT_MAX) {
-                gasel.loadingCargo(CARGO_WEIGHT_MAX, gaselCargoNow)
+                gasel.loadingCargo(CARGO_WEIGHT_MAX, gasel.cargoNow)
             } else {
-                gasel.loadingCargo(cargoInPointA, gaselCargoNow)
+                gasel.loadingCargo(cargoInPointA, gasel.cargoNow)
             }
+        gasel.cargoNow = cargoWight
         gasel.transportCargo(cargoWight, "B")
         gasel.unloadCargo(cargoWight)
+        gasel.cargoNow -= cargoWight
         cargoInPointB += cargoWight
         cargoInPointA -= cargoWight
     }
@@ -115,7 +122,5 @@ fun main() {
     println("\nПеревезено $passengersInPointB пассажиров и ${cargoInPointB}кг груза")
 }
 
-const val NUMBER_OF_PASSENGERS = 6
-const val CARGO_WEIGHT = 2000
 const val NUMBER_OF_PASSENGERS_MAX = 3
 const val CARGO_WEIGHT_MAX = 2000
