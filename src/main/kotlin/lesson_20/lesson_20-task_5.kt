@@ -3,11 +3,6 @@ package org.example.lesson_20
 class Robot(
     name: String,
 ) {
-    fun say(phrase: String): String {
-        println(phrase)
-        return phrase
-    }
-
     fun setModifier(
         phrase: String,
         invertedPhrase: (String) -> String = { it.reversed() },
@@ -26,7 +21,10 @@ class Robot(
 fun main() {
     val bender = Robot("Bender")
 
-    val randomPhrases = bender.say((bender.robotBenderPhrases).random())
-    val invertedPhrase = bender.setModifier(randomPhrases)
-    bender.say(invertedPhrase)
+    fun say(phrase: String): String {
+        println(phrase)
+        return phrase
+    }
+
+    say(bender.setModifier((bender.robotBenderPhrases).random()))
 }
