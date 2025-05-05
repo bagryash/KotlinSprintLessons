@@ -6,15 +6,20 @@ class Player(
     val healthMax: Int = HUNDRED,
 )
 
-fun Player.isHealthy(): Boolean {
-    return if (health == healthMax) true
-    else false
-}
-
+fun Player.isHealthy(): Boolean = if (health == healthMax) true else false
 
 fun main() {
+    val healingPotion: (Player) -> Unit = {
+        it.health += FORTY
+        if (it.health > it.healthMax) it.health = it.healthMax
+    }
 
+    val alex = Player("alex", 60)
+    println(alex.isHealthy())
 
+    healingPotion(alex)
+    println(alex.isHealthy())
 }
 
 const val HUNDRED = 100
+const val FORTY = 40
