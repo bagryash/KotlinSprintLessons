@@ -3,9 +3,9 @@ package org.example.lesson_21
 import java.util.*
 
 fun main() {
-    fun String.vowelCount(string: String): Int {
+    fun String.vowelCount(): Int {
         var count = 0
-        for (i in string.lowercase(Locale.getDefault())) {
+        for (i in lowercase(Locale.getDefault())) {
             if (i == 'a' ||
                 i == 'e' ||
                 i == 'i' ||
@@ -21,7 +21,6 @@ fun main() {
 
     val helloWorld = "Hello KOTLIN"
 
-    println(helloWorld.vowelCount(helloWorld))
-
+    println(helloWorld.vowelCount())
 
 }
