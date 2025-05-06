@@ -6,7 +6,7 @@ class Player(
     val healthMax: Int = HUNDRED,
 )
 
-fun Player.isHealthy(): Boolean = if (health == healthMax) true else false
+fun Player.isHealthy(): Boolean = (health == healthMax)
 
 fun main() {
     val healingPotion: (Player) -> Unit = {
